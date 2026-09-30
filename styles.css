@@ -7,13 +7,11 @@
     --beige-accent: #A6A69F;
     --light-beige-accent: #EEEEE0;
 
-
     font-family: "Roboto Mono";
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
 }
 
 * {
@@ -27,15 +25,130 @@ html {
 html,
 body {
     margin: 0;
-    padding: 0;
     min-height: 100%;
 }
 
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 25% 15%,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0) 38%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(120, 110, 100, 0.16) 0%,
+            rgba(120, 110, 100, 0) 45%
+        ),
+        linear-gradient(
+            115deg,
+            #b7b4b1 0%,
+            #aaa6a1 38%,
+            #b3afaa 65%,
+            #9f9993 100%
+        );
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.25) 0,
+            rgba(255, 255, 255, 0.25) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(50, 45, 40, 0.15) 0,
+            rgba(50, 45, 40, 0.15) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+    mix-blend-mode: multiply;
+}
+
+.site {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.1rem 3.1rem 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-dark-green);
+    font-family: "Doto", sans-serif;
+    font-size: clamp(2rem, 3.4vw, 3.8rem);
+    font-weight: 800;
+    line-height: 0.9;
+    text-decoration: none;
+    letter-spacing: -0.08em;
+}
+
+.logo span:last-child {
+    margin-top: 0.35rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.45rem;
+    border-radius: 999px;
+    background: rgba(220, 220, 211, 0.82);
+    box-shadow:
+        0 0.3rem 0.35rem rgba(31, 31, 24, 0.18),
+        0 0.05rem 0.1rem rgba(31, 31, 24, 0.15);
+    backdrop-filter: blur(4px);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 6.8rem;
+    height: 2.7rem;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    color: var(--text-dark-green);
+    font-family: "Roboto Mono", monospace;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 245, 0.8);
+}
+
+.nav-link.active {
+    background: var(--text-dark-green);
+    color: var(--light-beige-accent);
+}
 
 section {
     width: 400px;
     padding: 2rem;
-
 }
 
 h1 {
@@ -44,7 +157,6 @@ h1 {
     font-weight: 800;
     font-style: normal;
     font-variation-settings: "ROND" 0;
-
 }
 
 #one {
@@ -52,7 +164,6 @@ h1 {
     width: 200px;
     height: 20px;
 }
-
 
 #two {
     background-color: var(--army-green-background);
@@ -78,5 +189,4 @@ h1 {
     font-weight: 400;
     font-style: small;
     margin-top: 2rem;
-
 }
