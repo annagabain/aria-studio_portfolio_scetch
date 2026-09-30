@@ -31,49 +31,17 @@ body {
 body {
     min-height: 100vh;
     background:
-        radial-gradient(
-            ellipse at 25% 15%,
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(255, 255, 255, 0) 38%
-        ),
-        radial-gradient(
-            ellipse at 80% 75%,
-            rgba(120, 110, 100, 0.16) 0%,
-            rgba(120, 110, 100, 0) 45%
-        ),
         linear-gradient(
-            115deg,
-            #b7b4b1 0%,
-            #aaa6a1 38%,
-            #b3afaa 65%,
-            #9f9993 100%
-        );
+            rgba(218, 213, 201, 0.62),
+            rgba(218, 213, 201, 0.62)
+        ),
+        url("images/pexels-qwirkiandco-14380626.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.18;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.25) 0,
-            rgba(255, 255, 255, 0.25) 1px,
-            transparent 1px,
-            transparent 4px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(50, 45, 40, 0.15) 0,
-            rgba(50, 45, 40, 0.15) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-    mix-blend-mode: multiply;
-}
 
 .site {
     position: relative;
@@ -87,7 +55,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3.1rem 3.1rem 0;
+    padding: 1rem;
 }
 
 .logo {
@@ -189,4 +157,59 @@ h1 {
     font-weight: 400;
     font-style: small;
     margin-top: 2rem;
+}
+
+
+.circle-design {
+    --circle-size: clamp(600px, 65vw, 1120px);
+    --circle-border: clamp(1px, 0.9vw, 1.5px);
+    --circle-text: clamp(0.7rem, 1.05vw, 1.05rem);
+
+    position: fixed;
+    z-index: 2;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    right: clamp(-500px, 4vw, -260px);
+    bottom: clamp(-420px, -40vh, -240px);
+    pointer-events: auto;
+}
+
+
+
+.circle {
+    position: absolute;
+    border: var(--circle-border) solid var(--text-dark-green);
+    border-radius: 50%;
+}
+
+.outer-circle {
+    inset: 0;
+}
+
+.inner-circle {
+    width: 81%;
+    height: 81%;
+    top: 9.5%;
+    left: 9.5%;
+}
+
+
+
+.portrait {
+    position: absolute;
+    z-index: 5;
+    /* width: 30%; */
+    height: 50%;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
 }
